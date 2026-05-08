@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snip | Premium URL Shortener</title>
+    <!-- Modern typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Abstract background shapes for premium feel -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    
+    <main class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <!-- SVG Icon for Logo -->
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-13.35a4.5 4.5 0 00-6.364 0l-1.757 1.757" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1>Snip</h1>
+            </div>
+            <p>Shorten your links with a touch of elegance.</p>
+        </header>
+
+        <!-- Glassmorphism Main Panel -->
+        <div class="glass-panel">
+            <!-- URL Input Form -->
+            <form id="shorten-form" class="url-form">
+                <div class="input-group">
+                    <input type="text" id="url-input" placeholder="Paste your long URL here..." required autocomplete="off">
+                    <button type="submit" id="submit-btn">
+                        <span>Shorten</span>
+                        <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <div id="error-message" class="error-message hidden">Please enter a valid URL.</div>
+            </form>
+
+            <!-- Result Display Container (Hidden Initially) -->
+            <div id="result-container" class="result-container hidden">
+                <p class="success-text">Here is your shortened link!</p>
+                <div class="result-box">
+                    <a href="#" id="short-url" target="_blank"></a>
+                    <button id="copy-btn" class="copy-btn" aria-label="Copy to clipboard">
+                        <svg class="copy-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span class="tooltip">Copied!</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Link to custom JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
